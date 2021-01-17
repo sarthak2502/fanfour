@@ -5,7 +5,10 @@ public class Doctor {
 	public Integer DoctorId;
 	public Department d = new Department();
 	
-	Doctor(){};
+	Doctor(){
+		
+	}
+	
 	Doctor(String DN, Integer DI, Department DT){
 		DoctorName = DN;
 		DoctorId =DI;

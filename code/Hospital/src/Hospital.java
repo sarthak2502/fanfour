@@ -23,18 +23,60 @@ public class Hospital {
 		dt.p.History = "Fever";
 		dt.p.PatientName ="XYZ";
  //System.out.println(dt);
- 
- Department dt5 = new Department("MNO",100);
- System.out.println(dt5);
- 	dt5.p.PatientId=150;
-	dt5.p.Age =72;
-	dt5.p.Gender ='M';
-	dt5.p.History = "Cold";
-	dt5.p.PatientName ="QWE";
-	
-System.out.println(dt5);
 
-//Department dt2 = new Department("POI","IUY",145,"headache",65,'F',453); -- NEED TO ASK
+		 Department dt15 = new Department(200, "MNO");
+
+		
+		 Department dt5 = new Department("MNO",100);
+		 
+		 
+		//System.out.println(dt5);
+		dt5.p.PatientId = 150;
+		dt5.p.Age = 72;
+		dt5.p.Gender = 'M';
+		dt5.p.History = "Cold";
+		dt5.p.PatientName = "QWE";
+
+		//System.out.println(dt5);
+
+		// Department dt2 = new Department("POI","IUY",145,"headache",65,'F',453);
+
+		Department testDept = new Department("POI", new Patient("Mukesh", 60, 'M', new TestMain()), 453);
+		
+		testDept.p.History = "Do the tests !!!";
+		
+		//testDept.printDetails();
+		String pDetails = testDept.getPatientDetails();
+		System.out.println(pDetails);
+
+		System.out.println(testDept);
+		
+		TestMain t = new TestMain();
+		Patient p = new Patient("Rakesh", 34, 'M', t);
+		testDept.changePatient(p);
+		
+		testDept.changePatient(new Patient("Rakesh", 34, 'M', new TestMain()));
+		//"POI", new Patient("rakesh", 34, 'M', new TestMain()), 453
+		
+		String p2Details = testDept.getPatientDetails();
+		System.out.println(p2Details);
+		
+		System.out.println(testDept);
+
+		testDept.changePatientName("Suresh");
+		testDept.changePatienthistory("Paracetamol");
+
+		System.out.println(testDept.getPatientDetails());
+		
+		testDept.changePatienthistory("Suresh/Doing Fine");
+
+		System.out.println(testDept.getPatientDetails());
+
+		testDept.changePatientDetails("Suresh", "OK Fine");
+		
+		System.out.println(testDept.getPatientDetails());
+
+		
 //System.out.println(dt2);
 
 Doctor DN1 = new Doctor();
@@ -61,6 +103,8 @@ DN2.d.TotalPatients = 734;
 
 //Doctor DN3 = new Doctor("PFG",56,"IOY",185,"Backache",95,'M');
 //System.out.println(DN3);
+
+
 
 		
 	}
