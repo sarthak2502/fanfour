@@ -9,18 +9,18 @@ public class Student {
 	public Integer count;
 	
 	//Default constructor
-	Student() {
+	public Student() {
 		
 	}
 	
 	//Parameterized constructor
-	Student(String n, Integer i) {
+	public Student(String n, Integer i) {
 		name = n;
 		id = i;
 	}
 	
 	//Parameterized constructor
-	Student(String n, Integer i, Double em, Double hm) {
+	public Student(String n, Integer i, Double em, Double hm) {
 		name = n;
 		id = i;
 		engMarks = em;
