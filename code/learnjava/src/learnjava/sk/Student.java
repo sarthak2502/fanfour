@@ -7,30 +7,29 @@ public class Student {
 	public Double engMarks;
 	public Double hinMarks;
 	public Integer count;
-	
-	//Default constructor
+
+	// Default constructor
 	public Student() {
-		
+
 	}
-	
-	//Parameterized constructor
+
+	// Parameterized constructor
 	public Student(String n, Integer i) {
 		name = n;
 		id = i;
 	}
-	
-	//Parameterized constructor
+
+	// Parameterized constructor
 	public Student(String n, Integer i, Double em, Double hm) {
 		name = n;
 		id = i;
 		engMarks = em;
-		engMarks = hm;
+		hinMarks = hm;
 	}
-	
 
 	@Override
 	public String toString() {
 		return "Student [name=" + name + ", id=" + id + ", engMarks=" + engMarks + ", hinMarks=" + hinMarks + "]";
 	}
-	
+
 }
