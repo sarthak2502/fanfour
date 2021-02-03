@@ -14,6 +14,10 @@ public class School {
 		st = sd;
 
 	}
+	
+	public void display() {
+		System.out.println("Hello from the school !!!");
+	}
 
 	@Override
 	public String toString() {

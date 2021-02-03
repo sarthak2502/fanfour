@@ -7,6 +7,7 @@ import java.util.Set;
 
 import learnjava.sk.School;
 import learnjava.sk.Student;
+import learnjava.sk.oops.Car;
 
 public class MainCollection {
 
@@ -15,8 +16,10 @@ public class MainCollection {
 		// learnCollections();
 
 //		learnGenerics();
-		engavg();
-		hinavg();
+		//engavg();
+		//hinavg();
+		
+		testSetValues();
 	}
 
 	public static void learnCollections() {
@@ -174,5 +177,37 @@ public class MainCollection {
 
 		System.out.println(s);
 	}
+	
+	public static void testSetValues() {
+		Set<String> s1 = new HashSet<>();
+		s1.add("ABC");
+		s1.add("ABC");
+		
+		System.out.println(s1);
+		
+		Set<Student> s = new HashSet<>();
+		
+		Student st1 = new Student("Sarthak", 100);
+		Student st2 = new Student("Sarthak", 101);
+		Student st3 = new Student("Sarthak", 100);
+		Student st4 = st3;
+
+		//System.out.println(st4);
+		
+		s.add(st1);
+		s.add(st2);
+		s.add(st3);
+		s.add(st4);
+
+		System.out.println(s);
+		
+		
+		Car c = new Car();
+		c.test();
+		c.display();
+		
+		String str = "aa";
+	}
+
 
 }

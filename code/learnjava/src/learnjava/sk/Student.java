@@ -28,6 +28,24 @@ public class Student {
 	}
 
 	@Override
+	public int hashCode() {
+		return 1;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		Student s = (Student) obj;
+		
+		if (s.name.equals(this.name) && s.id == this.id) {
+			return true;
+		}
+		return false;
+	}
+	
+	
+	
+	
+	@Override
 	public String toString() {
 		return "Student [name=" + name + ", id=" + id + ", engMarks=" + engMarks + ", hinMarks=" + hinMarks + "]";
 	}
