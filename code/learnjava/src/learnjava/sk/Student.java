@@ -34,16 +34,15 @@ public class Student {
 	
 	@Override
 	public boolean equals(Object obj) {
-		Student s = (Student) obj;
-		
-		if (s.name.equals(this.name) && s.id == this.id) {
-			return true;
+		if (obj instanceof Student) {
+			Student s = (Student) obj;
+			
+			if (s.name.equals(this.name) && s.id == this.id) {
+				return true;
+			}
 		}
 		return false;
 	}
-	
-	
-	
 	
 	@Override
 	public String toString() {

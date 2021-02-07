@@ -15,7 +15,7 @@ public class Vehicle {
 	public Integer add(Integer i, Integer j) {
 		return i + j;
 	}
-
+	
 	Integer calculateAvailableSeats() {
 		
 		// Some calculations happen here..

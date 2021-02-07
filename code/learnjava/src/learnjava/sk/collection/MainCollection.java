@@ -1,13 +1,20 @@
 package learnjava.sk.collection;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
+import java.util.TreeSet;
 
 import learnjava.sk.School;
 import learnjava.sk.Student;
 import learnjava.sk.oops.Car;
+import learnjava.sk.oops.SUV;
+import learnjava.sk.oops.Vehicle;
 
 public class MainCollection {
 
@@ -15,11 +22,15 @@ public class MainCollection {
 
 		// learnCollections();
 
-//		learnGenerics();
+		learnGenerics();
 		//engavg();
 		//hinavg();
 		
-		testSetValues();
+		//testSetValues();
+		
+//		testInheritance();
+		
+		//testMaps();
 	}
 
 	public static void learnCollections() {
@@ -32,7 +43,11 @@ public class MainCollection {
 
 		// Accepts duplicates, ordered or unordered
 		List l = new ArrayList();
+		List l2 = new LinkedList();
 
+		remove(l2, 2);
+		remove(l, 7);
+		
 //		l.add(5);
 //		l.add("Sarthak");
 //		l.add(8);
@@ -56,6 +71,7 @@ public class MainCollection {
 
 		// No duplicates
 		Set s = new HashSet();
+		Set s1 = new TreeSet();
 //		s.add(5);
 //		s.add(2);
 //		s.add(8);
@@ -80,10 +96,19 @@ public class MainCollection {
 		Integer i = 90;
 
 		List<Integer> l = new ArrayList<>();
-
 		l.add(1);
 		l.add(3);
 		l.add(i);
+
+		List<Integer> l2 = new ArrayList<>();
+		l2.add(1);
+		l2.add(3);
+		l2.add(i);
+
+		List<Integer> l3 = new ArrayList<>();
+		l3.add(1);
+		l3.add(3);
+		l3.add(i);
 
 		// System.out.println(l);
 		// Student[] arr = new Student[10];
@@ -94,17 +119,26 @@ public class MainCollection {
 			Student st = new Student("ABC" + j, 100 + j);
 			ls.add(st);
 		}
-		System.out.println("List populated successfully. List size = " + ls.size());
+		//System.out.println("List populated successfully. List size = " + ls.size());
 
 		Integer sum = 0;
 		for (Integer j = 0; j < ls.size(); j++) {
 			Student st = ls.get(j); // ls[j]
 			sum = sum + st.id;
-			System.out.println(st);
+			//System.out.println(st);
 			// ls.remove(st);
 		}
-		System.out.println(sum);
+		//System.out.println(sum);
 		// System.out.println(ls);
+		
+		
+		List<List<Integer>> list = new ArrayList<>();
+		
+		list.add(l);
+		list.add(l2);
+		list.add(l3);
+		
+		System.out.println(list);
 
 	}
 
@@ -183,31 +217,123 @@ public class MainCollection {
 		s1.add("ABC");
 		s1.add("ABC");
 		
-		System.out.println(s1);
+		//System.out.println(s1);
 		
 		Set<Student> s = new HashSet<>();
 		
 		Student st1 = new Student("Sarthak", 100);
-		Student st2 = new Student("Sarthak", 101);
+		Student st2 = new Student("Sudeep", 101);
 		Student st3 = new Student("Sarthak", 100);
-		Student st4 = st3;
 
 		//System.out.println(st4);
 		
 		s.add(st1);
 		s.add(st2);
 		s.add(st3);
-		s.add(st4);
 
-		System.out.println(s);
+		Iterator<Student> i = s.iterator();
 		
+		while (i.hasNext()) {
+			Student x = i.next();
+			
+			System.out.println(x.name);
+		}
 		
-		Car c = new Car();
-		c.test();
-		c.display();
+
+		//System.out.println(s);
 		
-		String str = "aa";
+	}
+	
+	public static void testInheritance() {
+
+		Vehicle v = new Vehicle();
+		
+		v.noOfWheels = 4;
+		
+		Vehicle v1 = new Car();
+		
+		Car c = (Car) v;
+		
+		System.out.println(v instanceof Car);
+		System.out.println(v1 instanceof Car);
+
+		//c1.noOfWheels = 4;
+//		c1.type = "SUV";
+		//test(v);
+//		test(c1);
+		
+//		SUV s = new SUV();
+//		s.power = 80.6;
+//		
+//		test(s);
+		
 	}
 
+	public static void test (Vehicle v) {
+		System.out.println("Wheels : " + v.noOfWheels);
+		
+		if (v instanceof Car) {
+			Car c = (Car) v; //Casting
+			
+			System.out.println("Type : " + c.type);
+		}
+		
+		if (v instanceof SUV) {
+			SUV s = (SUV) v; //Casting
+			
+			System.out.println("Power : " + s.power);
+		}
+
+		
+	}
+
+	public static void remove(List l, Integer index) {
+		
+		if (l instanceof ArrayList) {
+			//remove from last
+		}
+		if (l instanceof LinkedList) {
+			//remove from first
+		}
+	}
+
+	public static void testMaps() {
+		Map<Integer, String> m = new HashMap<>();
+
+		m.put(1, "Sudeep");
+		m.put(8, "Sarthak");
+		m.put(4, "Guru");
+		m.put(7, "Savar");
+		m.put(8/2, "Test");
+		
+		//System.out.println(m);
+
+		Map<Integer, Student> map = new HashMap<>();
+
+		Student s = new Student("ABC", 100);
+		Student s1 = new Student("ABC1", 101);
+		Student s2 = new Student("ABC2", 102);
+		Student s3 = new Student("ABC3", 103);
+		
+		map.put(10, s);
+		map.put(11, s2);
+		map.put(12, s3);
+		map.put(13, s1);
+		
+		//System.out.println(map);
+
+		Map<MyKey, Student> map1 = new HashMap<>();
+		
+		MyKey key1 = new MyKey("ABC1", "X1");
+		MyKey key2 = new MyKey("ABC2", "X2");
+		MyKey key3 = new MyKey("ABC3", "X3");
+		
+		map1.put(key1, s);
+		map1.put(key2, s1);
+		map1.put(key3, s3);
+		
+		System.out.println(map1);
+		
+	}
 
 }
